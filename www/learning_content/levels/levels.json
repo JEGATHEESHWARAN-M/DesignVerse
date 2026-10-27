@@ -1,0 +1,281 @@
+[
+  {
+    "level_id": 1,
+    "name": "My Room",
+    "title": "🌱 My Room",
+    "xp_required": 0,
+    "description": "Learn what a room is: floor, walls, ceiling, door, and windows!",
+    "badge_icon": "🌱",
+    "unlocks": [
+      "room_exploration",
+      "object_selection",
+      "simple_camera_movement"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l1_what_is_a_room",
+        "title": "What is a Room?",
+        "type": "interactive",
+        "xp_reward": 30,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "Hello friend! A room has walls, a floor under your feet, and a ceiling above you! 🏠" },
+            { "type": "action", "action": "find_floor", "prompt": "Can you tap on the floor?", "success_message": "Awesome! You found the floor! ⭐" },
+            { "type": "action", "action": "find_door", "prompt": "Where is the door to go outside?", "success_message": "Super! You found the door! 🚪" },
+            { "type": "action", "action": "find_window", "prompt": "Tap on the window where sunlight comes in!", "success_message": "Hooray! You found the window! ☀️" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 2,
+    "name": "Furniture Friends",
+    "title": "🪑 Furniture Friends",
+    "xp_required": 100,
+    "description": "Meet chairs, tables, beds, and sofas! Discover what each is used for.",
+    "badge_icon": "🪑",
+    "unlocks": [
+      "select_furniture",
+      "move_furniture",
+      "add_simple_furniture"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l2_meet_furniture",
+        "title": "Meet Your Furniture Friends",
+        "type": "interactive",
+        "xp_reward": 40,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "A chair is for sitting! A bed is for dreaming! Let's explore them! 🛋️" },
+            { "type": "action", "action": "find_chair", "prompt": "Find the chair in the room!", "success_message": "Yes! That's a comfy chair! 🪑" },
+            { "type": "action", "action": "place_near_table", "prompt": "Can you put the chair near the table?", "success_message": "Great teamwork! Now we can sit and eat! 🍽️" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 3,
+    "name": "Color World",
+    "title": "🎨 Color World",
+    "xp_required": 250,
+    "description": "Explore warm, cool, bright and cozy colors to make walls and furniture happy!",
+    "badge_icon": "🎨",
+    "unlocks": [
+      "wall_colors",
+      "floor_colors",
+      "furniture_colors"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l3_color_magic",
+        "title": "Color Magic",
+        "type": "practice",
+        "xp_reward": 50,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "Colors change how a room feels! Blue is calm like the sky, and yellow is bright like the sun! ☀️" },
+            { "type": "action", "action": "paint_wall_blue", "prompt": "Make the wall blue like the ocean!", "success_message": "Wow, so peaceful and pretty! 🌊" },
+            { "type": "action", "action": "happy_color", "prompt": "Pick your favorite happy color for the chair!", "success_message": "That chair looks wonderful! 🎨" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 4,
+    "name": "Shapes & Space",
+    "title": "🔷 Shapes & Space",
+    "xp_required": 450,
+    "description": "Circles, rectangles, near, far, inside, and outside! Shapes make furniture.",
+    "badge_icon": "🔷",
+    "unlocks": [
+      "move_objects",
+      "resize_objects",
+      "basic_positioning"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l4_shapes_furniture",
+        "title": "Shapes in Furniture",
+        "type": "interactive",
+        "xp_reward": 50,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "A table is shaped like a rectangle! Rugs can be soft circles! 🔷" },
+            { "type": "action", "action": "position_near_wall", "prompt": "Place the bed near the wall so it feels safe and cozy!", "success_message": "Perfect spot! 🛏️" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 5,
+    "name": "Smart Space",
+    "title": "📐 Smart Space",
+    "xp_required": 700,
+    "description": "Walking paths, room size, and making sure nothing blocks the door!",
+    "badge_icon": "📐",
+    "unlocks": [
+      "rotate",
+      "resize",
+      "grid",
+      "snap",
+      "alignment",
+      "collision_warnings"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l5_walking_room",
+        "title": "Clear Walking Paths",
+        "type": "practice",
+        "xp_reward": 60,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "We need space to walk! If furniture is in front of the door, people can't enter! 🚶" },
+            { "type": "action", "action": "clear_door_path", "prompt": "Move the chair away from the door so it opens freely!", "success_message": "Awesome! Now we have plenty of walking space! 🚪✨" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 6,
+    "name": "My First Room Design",
+    "title": "🏠 My First Room Design",
+    "xp_required": 1050,
+    "description": "Build your very own complete bedroom, study, or living room!",
+    "badge_icon": "🏠",
+    "unlocks": [
+      "full_room_builder",
+      "room_type_selection",
+      "decorations"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l6_build_first_room",
+        "title": "Create a Cozy Bedroom",
+        "type": "challenge",
+        "xp_reward": 80,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "You're a real designer now! Place a bed, a table, and a lamp in your new room! 🌟" },
+            { "type": "action", "action": "complete_bedroom", "prompt": "Arrange the 3 pieces and pick matching colors!", "success_message": "Hooray! You built your first complete room! 🏆" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 7,
+    "name": "Design Explorer",
+    "title": "💡 Design Explorer",
+    "xp_required": 1500,
+    "description": "Balance, focal points, cozy lighting, and real materials like wood and fabric!",
+    "badge_icon": "💡",
+    "unlocks": [
+      "materials_selector",
+      "lighting_modes",
+      "style_presets"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l7_balance_lighting",
+        "title": "Light and Materials",
+        "type": "interactive",
+        "xp_reward": 90,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "Warm lights feel like bedtime stories! Wood feels natural and strong! 🪵💡" },
+            { "type": "action", "action": "apply_wood_texture", "prompt": "Change the floor to natural warm wood!", "success_message": "Look how warm and inviting the room is! 🪵" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 8,
+    "name": "Floor Plan Explorer",
+    "title": "🗺️ Floor Plan Explorer",
+    "xp_required": 2100,
+    "description": "A floor plan is a map of a room seen from above! Draw walls and doors.",
+    "badge_icon": "🗺️",
+    "unlocks": [
+      "2d_floor_plan_creator",
+      "wall_drawing",
+      "furniture_stamps"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l8_map_the_room",
+        "title": "Room Maps from Above",
+        "type": "practice",
+        "xp_reward": 100,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "Bird's-eye view! A floor plan is a map that shows where walls and furniture go from above! 🦅" },
+            { "type": "action", "action": "draw_simple_wall", "prompt": "Draw a rectangular room boundary on the 2D grid!", "success_message": "Incredible! You made a 2D floor plan! 🗺️" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 9,
+    "name": "2D to 3D Magic",
+    "title": "🌍 2D to 3D Magic",
+    "xp_required": 2800,
+    "description": "Watch the magic! The computer takes your flat map and builds real 3D walls and furniture!",
+    "badge_icon": "🌍",
+    "unlocks": [
+      "2d_to_3d_converter",
+      "ai_scene_understanding",
+      "3d_walkthrough_mode"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l9_magic_transformation",
+        "title": "Turn Map into 3D World",
+        "type": "interactive",
+        "xp_reward": 120,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "3, 2, 1... Magic! The AI turns your flat paper map into a full 3D room you can explore! 🚀" },
+            { "type": "action", "action": "reconstruct_scene", "prompt": "Tap 'Turn into 3D' to bring your room to life!", "success_message": "WOW! Your drawing became a real 3D room! 🏰✨" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "level_id": 10,
+    "name": "Young Designer",
+    "title": "👑 Young Designer",
+    "xp_required": 3600,
+    "description": "You graduated! Design your ultimate dream room with full 3D, voice, AI, and colors!",
+    "badge_icon": "👑",
+    "unlocks": [
+      "ALL_DESIGN_TOOLS",
+      "voice_magic",
+      "ai_design_buddy",
+      "dream_room_studio",
+      "master_graduation_badge"
+    ],
+    "lessons": [
+      {
+        "lesson_id": "l10_dream_room",
+        "title": "Design Your Dream Room",
+        "type": "challenge",
+        "xp_reward": 200,
+        "content": {
+          "steps": [
+            { "type": "speech", "body": "Congratulations, Master Designer! 👑 Combine everything you learned to build your dream room!" },
+            { "type": "action", "action": "graduate_project", "prompt": "Create your ultimate room and save your graduation masterpiece!", "success_message": "🎉 YOU DID IT! You are a certified DesignVerse Young Interior Designer! 🏆🏅" }
+          ]
+        }
+      }
+    ]
+  }
+]

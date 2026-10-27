@@ -1,0 +1,868 @@
+/* DesignVerse Kids — Child-Friendly Educational Styling */
+
+.kids-status-widget {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(255, 183, 3, 0.2), rgba(58, 102, 255, 0.2));
+  border: 1.5px solid #FFB703;
+  border-radius: 24px;
+  padding: 6px 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 183, 3, 0.2);
+}
+
+.kids-status-widget:hover {
+  transform: scale(1.04);
+}
+
+.kids-badge-icon {
+  font-size: 1.4rem;
+}
+
+.kids-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.kids-lvl {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.kids-stars {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #FFB703;
+}
+
+/* Kids Academy Hub Dialog */
+.kids-hub-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 10005;
+  align-items: center;
+  justify-content: center;
+}
+
+.kids-hub-overlay.open {
+  display: flex;
+}
+
+.kids-hub-dialog {
+  background: #181A2A;
+  border: 2px solid rgba(255, 183, 3, 0.4);
+  border-radius: 24px;
+  width: 90%;
+  max-width: 560px;
+  padding: 24px;
+  color: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  animation: popIn 0.25s ease-out;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.kids-hub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.kids-hub-header h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #FFD166;
+  margin: 0;
+}
+
+.kids-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.kids-hero-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.kids-hero-avatar {
+  font-size: 3rem;
+}
+
+.kids-hero-info {
+  flex: 1;
+}
+
+.kids-hero-info h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+.kids-hero-info p {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: #ddd;
+}
+
+.kids-progress-track {
+  background: rgba(255, 255, 255, 0.15);
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.kids-progress-fill {
+  background: linear-gradient(90deg, #FFB703, #06D6A0);
+  height: 100%;
+}
+
+.kids-sections-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.kids-nav-pill {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kids-nav-pill.active {
+  background: #3A66FF;
+  border-color: #3A66FF;
+}
+
+.kids-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kids-activity-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 16px;
+  border-radius: 14px;
+}
+
+.card-icon {
+  font-size: 2rem;
+}
+
+.card-details {
+  flex: 1;
+}
+
+.card-details h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.card-details p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+.kids-act-btn {
+  background: #06D6A0;
+  color: #000;
+  border: none;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.kids-act-btn.completed {
+  background: rgba(6, 214, 160, 0.2);
+  color: #06D6A0;
+  border: 1px solid #06D6A0;
+}
+
+.kids-act-btn.locked {
+  background: rgba(255, 255, 255, 0.08);
+  color: #777;
+  cursor: not-allowed;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kids-activity-card.active-level {
+  border-color: #FFB703;
+  background: rgba(255, 183, 3, 0.08);
+  box-shadow: 0 4px 16px rgba(255, 183, 3, 0.15);
+}
+
+/* Sparky Floating AI Teacher Bubble */
+.sparky-bubble {
+  position: fixed;
+  bottom: 85px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1B2038;
+  border: 2px solid #3A66FF;
+  padding: 12px 18px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 10002;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sparky-bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sparky-face {
+  font-size: 2rem;
+}
+
+.sparky-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  max-width: 260px;
+}
+
+/* ── Interactive Launch Page & App Name Styling ────────────────── */
+.welcome-particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.welcome-container {
+  position: relative;
+  z-index: 2;
+}
+
+.interactive-title,
+.welcome-letters-title,
+.welcome-app-name {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  gap: 1px;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 8px !important;
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  perspective: 1000px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.anim-letter {
+  display: inline-block;
+  font-size: clamp(1.15rem, 5vw, 1.8rem) !important;
+  font-weight: 900;
+  line-height: 1.1;
+  padding: 1px 2px;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease, text-shadow 0.2s ease;
+  -webkit-text-fill-color: initial !important;
+  will-change: transform;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.45);
+}
+
+/* Vibrant Individual Child-Friendly Palette for Letters */
+.anim-letter:nth-child(1) { color: #FF5964; }  /* D - Coral */
+.anim-letter:nth-child(2) { color: #FFB703; }  /* e - Sun Yellow */
+.anim-letter:nth-child(3) { color: #06D6A0; }  /* s - Teal */
+.anim-letter:nth-child(4) { color: #4CC9F0; }  /* i - Sky Blue */
+.anim-letter:nth-child(5) { color: #F72585; }  /* g - Rose */
+.anim-letter:nth-child(6) { color: #8338EC; }  /* n - Violet */
+.anim-letter:nth-child(7) { 
+  color: #FFBE0B; 
+  font-size: clamp(1.3rem, 5.5vw, 2.0rem) !important; 
+  font-weight: 950;
+  text-shadow: 0 0 16px rgba(255, 190, 11, 0.7), 0 4px 12px rgba(0, 0, 0, 0.5);
+} /* V - Golden Major */
+.anim-letter:nth-child(8) { color: #3A86FF; }  /* e - Royal Blue */
+.anim-letter:nth-child(9) { color: #38B000; }  /* r - Lime */
+.anim-letter:nth-child(10) { color: #FB5607; } /* s - Orange */
+.anim-letter:nth-child(11) { color: #9D4EDD; } /* e - Purple */
+
+/* Bouncy Active Pop State on Tap / Hover */
+.anim-letter:hover,
+.anim-letter:active,
+.anim-letter.popping {
+  transform: translateY(-14px) scale(1.32) rotate(var(--letter-rot, 4deg));
+  filter: brightness(1.3);
+  text-shadow: 0 0 24px currentColor, 0 10px 20px rgba(0, 0, 0, 0.6);
+  animation: letterElasticPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes letterElasticPop {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  40% { transform: translateY(-16px) scale(1.35) rotate(-8deg); }
+  75% { transform: translateY(-6px) scale(1.15) rotate(4deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+/* Floating Rhyme / Phonics Tip Bubble */
+.welcome-letter-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 183, 3, 0.4);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFB703;
+  margin-bottom: 12px;
+  min-height: 34px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.welcome-letter-hint:hover {
+  transform: scale(1.05);
+  border-color: #FFB703;
+  box-shadow: 0 6px 18px rgba(255, 183, 3, 0.3);
+}
+
+.welcome-letter-hint.flash {
+  background: rgba(255, 183, 3, 0.22);
+  transform: scale(1.08);
+}
+
+/* Interactive Logo Badge */
+.welcome-app-badge {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: logoSoftGlow 3s infinite ease-in-out;
+}
+
+.welcome-app-badge:hover {
+  transform: scale(1.12) rotate(6deg);
+  box-shadow: 0 14px 34px rgba(58, 102, 255, 0.6);
+}
+
+.welcome-app-badge.spinning {
+  animation: logoSpinBurst 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes logoSoftGlow {
+  0%, 100% { box-shadow: 0 8px 24px rgba(58, 102, 255, 0.35); }
+  50% { box-shadow: 0 12px 36px rgba(255, 183, 3, 0.5), 0 0 20px rgba(58, 102, 255, 0.4); }
+}
+
+@keyframes logoSpinBurst {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.28) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
+/* Tagline Wave Words */
+.tagline-word {
+  display: inline-block;
+  padding: 0 2px;
+  transition: transform 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.tagline-word:hover,
+.tagline-word.pop {
+  transform: translateY(-4px) scale(1.15);
+  color: #FFB703;
+  text-shadow: 0 0 10px rgba(255, 183, 3, 0.6);
+}
+
+/* Kids Academy Launch Action Button */
+.welcome-btn-kids {
+  background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%);
+  color: #0b0c16;
+  border: none;
+  font-weight: 850;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 183, 3, 0.4);
+  transition: all 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+.welcome-btn-kids:hover,
+.welcome-btn-kids:active {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(255, 183, 3, 0.6);
+}
+
+/* ── Kids Academy Extended UI & System Styling ────────────────── */
+.kids-hub-dialog {
+  max-width: 680px !important;
+  max-height: 90vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  padding: 20px !important;
+}
+
+.kids-hub-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+  min-height: 320px;
+}
+
+.kids-sections-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 6px;
+  scrollbar-width: none;
+}
+.kids-sections-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.kids-nav-pill {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kids-nav-pill.active {
+  background: linear-gradient(135deg, #3A66FF, #8338EC);
+  border-color: #3A66FF;
+  box-shadow: 0 4px 14px rgba(58, 102, 255, 0.4);
+}
+
+/* Onboarding Modal */
+.kids-onboarding-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.9);
+  backdrop-filter: blur(14px);
+  z-index: 10010;
+  align-items: center;
+  justify-content: center;
+}
+.kids-onboarding-overlay.open {
+  display: flex;
+}
+.onboarding-card {
+  background: #181A2A;
+  border: 2px solid #FFB703;
+  border-radius: 24px;
+  width: 92%;
+  max-width: 520px;
+  padding: 28px 24px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.onboarding-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #FFB703;
+  margin: 10px 0;
+}
+.onboarding-desc {
+  font-size: 0.95rem;
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.interest-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.interest-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+.interest-chip.selected {
+  background: rgba(255, 183, 3, 0.25);
+  border-color: #FFB703;
+  color: #FFB703;
+  transform: scale(1.05);
+}
+.roadmap-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  margin-bottom: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 14px;
+  border-radius: 14px;
+}
+.roadmap-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+/* Mini Game Box */
+.minigame-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.minigame-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.minigame-header h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #FFB703;
+}
+.game-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+.game-opt-btn {
+  background: rgba(58, 102, 255, 0.15);
+  border: 1.5px solid #3A66FF;
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.game-opt-btn:hover {
+  background: #3A66FF;
+  transform: translateY(-2px);
+}
+.game-opt-btn.correct {
+  background: #06D6A0 !important;
+  border-color: #06D6A0 !important;
+  color: #0a0a14 !important;
+}
+
+/* Skills DAG Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.skill-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.skill-card.unlocked {
+  border-color: #FFB703;
+  background: rgba(255, 183, 3, 0.08);
+}
+.skill-card.mastered {
+  border-color: #06D6A0;
+  background: rgba(6, 214, 160, 0.12);
+}
+.skill-icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+.skill-name {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+/* Saved Rooms */
+.saved-rooms-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.saved-room-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+.room-meta h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  color: #FFB703;
+}
+.room-meta p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* Sparky Interactive Chat */
+.sparky-chat-box {
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+}
+.sparky-messages-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+  margin-bottom: 12px;
+}
+.sparky-msg-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.sparky-msg-row.user {
+  flex-direction: row-reverse;
+}
+.sparky-msg-bubble {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  max-width: 80%;
+  line-height: 1.4;
+}
+.sparky-msg-row.bot .sparky-msg-bubble {
+  background: rgba(58, 102, 255, 0.2);
+  border-color: #3A66FF;
+}
+.sparky-prompts-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  margin-bottom: 8px;
+  scrollbar-width: none;
+}
+.sparky-quick-btn {
+  background: rgba(255, 183, 3, 0.15);
+  border: 1px solid #FFB703;
+  color: #FFB703;
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.sparky-input-row {
+  display: flex;
+  gap: 8px;
+}
+.sparky-text-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 0.88rem;
+}
+.sparky-send-btn, .sparky-mic-btn {
+  background: #3A66FF;
+  border: none;
+  color: #fff;
+  border-radius: 12px;
+  padding: 0 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.sparky-mic-btn {
+  background: #FB5607;
+}
+
+/* Parent Area */
+.parent-gate-card {
+  text-align: center;
+  padding: 20px;
+}
+.parent-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.parent-stat-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+}
+.parent-stat-num {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #06D6A0;
+}
+.parent-stat-lbl {
+  font-size: 0.75rem;
+  color: #aaa;
+  font-weight: 700;
+}
+
+/* 🎨 Interactive Color Lab & Coloring System */
+.color-drop-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.color-drop-btn:hover {
+  transform: scale(1.15);
+}
+
+.color-drop-btn.active-drop {
+  border: 3px solid #FFD166;
+  transform: scale(1.2);
+  box-shadow: 0 0 16px rgba(255, 209, 102, 0.8);
+}
+
+.target-pill-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.target-pill-btn:hover {
+  background: rgba(255, 183, 3, 0.15);
+  border-color: #FFB703;
+}
+
+.target-pill-btn.active {
+  background: #FFB703;
+  color: #111;
+  border-color: #FFD166;
+  box-shadow: 0 4px 12px rgba(255, 183, 3, 0.4);
+}
+
+.palette-swatch-btn {
+  border: none;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.palette-swatch-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.color-mix-result-box {
+  animation: pulseBox 3s infinite alternate;
+}
+
+@keyframes pulseBox {
+  from { border-color: rgba(255, 255, 255, 0.3); }
+  to { border-color: rgba(255, 209, 102, 0.9); }
+}

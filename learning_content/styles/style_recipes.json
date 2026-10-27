@@ -1,0 +1,114 @@
+[
+  {
+    "id": "style_nature_calm",
+    "label": "Nature Calm",
+    "wall_color": "#E3EBDD",
+    "floor_material_id": "mat_oak_wood",
+    "furniture_color_map": {
+      "chair": "#4A6B53",
+      "diningTable": "#8B5A2B",
+      "tvUnit": "#2E3B32",
+      "wardrobe": "#FAF8F5"
+    },
+    "lighting_preset_id": "golden_morning",
+    "furniture_nudges": [],
+    "source": "builtin",
+    "min_level": 7
+  },
+  {
+    "id": "style_rainbow_fun",
+    "label": "Rainbow Fun",
+    "wall_color": "#FFF9E6",
+    "floor_material_id": "mat_terrazzo_tiles",
+    "furniture_color_map": {
+      "chair": "#FF5964",
+      "diningTable": "#FEE180",
+      "tvUnit": "#35A7FF",
+      "wardrobe": "#38B000"
+    },
+    "lighting_preset_id": "bright_noon",
+    "furniture_nudges": [],
+    "source": "builtin",
+    "min_level": 7
+  },
+  {
+    "id": "style_cool_fresh",
+    "label": "Cool & Fresh",
+    "wall_color": "#DDF0F7",
+    "floor_material_id": "mat_soft_cloud_carpet",
+    "furniture_color_map": {
+      "chair": "#3A86C8",
+      "diningTable": "#EBF2FA",
+      "tvUnit": "#0F4C81",
+      "wardrobe": "#FFFFFF"
+    },
+    "lighting_preset_id": "bright_noon",
+    "furniture_nudges": [],
+    "source": "builtin",
+    "min_level": 7
+  },
+  {
+    "id": "style_sunny_bright",
+    "label": "Sunny & Bright",
+    "wall_color": "#FFF3B0",
+    "floor_material_id": "mat_oak_wood",
+    "furniture_color_map": {
+      "chair": "#E09F3E",
+      "diningTable": "#FFF8E7",
+      "tvUnit": "#9E2A2B",
+      "wardrobe": "#F7F4EA"
+    },
+    "lighting_preset_id": "warm_sunset",
+    "furniture_nudges": [],
+    "source": "builtin",
+    "min_level": 7
+  },
+  {
+    "id": "style_soft_cozy",
+    "label": "Soft & Cozy",
+    "wall_color": "#F3E8EE",
+    "floor_material_id": "mat_soft_cloud_carpet",
+    "furniture_color_map": {
+      "chair": "#BAA5B2",
+      "diningTable": "#C9ADA7",
+      "tvUnit": "#4A4E69",
+      "wardrobe": "#F2E9E4"
+    },
+    "lighting_preset_id": "warm_sunset",
+    "furniture_nudges": [],
+    "source": "builtin",
+    "min_level": 7
+  },
+  {
+    "id": "style_warm_wood",
+    "label": "Warm Wood",
+    "wall_color": "#EFE6DD",
+    "floor_material_id": "mat_oak_wood",
+    "furniture_color_map": {
+      "chair": "#8C5835",
+      "diningTable": "#5C3D2E",
+      "tvUnit": "#2D1E18",
+      "wardrobe": "#A67C52"
+    },
+    "lighting_preset_id": "golden_morning",
+    "furniture_nudges": [],
+    "source": "builtin",
+    "min_level": 7
+  },
+  {
+    "id": "style_dream_room",
+    "label": "Dream Room",
+    "wall_color": "#22263D",
+    "floor_material_id": "mat_mountain_marble",
+    "furniture_color_map": {
+      "chair": "#7B2CBF",
+      "diningTable": "#C77DFF",
+      "tvUnit": "#10002B",
+      "wardrobe": "#E0AAFF"
+    },
+    "lighting_preset_id": "cozy_night",
+    "furniture_nudges": [],
+    "source": "builtin",
+    "min_level": 10
+  }
+]

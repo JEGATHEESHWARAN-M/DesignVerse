@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DesignVerse — Proposed System Architecture (Layered Tier Diagram)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: #f8fafc;
+      width: 1600px;
+      height: 1060px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 24px;
+      color: #1e293b;
+      overflow: hidden;
+    }
+
+    /* Overall Container */
+    .arch-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    /* Tier Row */
+    .tier-box {
+      width: 100%;
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Tier Badge Left */
+    .tier-badge-col {
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .tier-pill {
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tier-role {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+
+    /* Tier Content Grid */
+    .tier-cards-row {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 12px;
+      padding-left: 20px;
+    }
+
+    .actor-card {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 8px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 170px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+    .actor-icon {
+      font-size: 26px;
+      margin-bottom: 2px;
+    }
+    .actor-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .actor-sub {
+      font-size: 10.5px;
+      color: #64748b;
+    }
+
+    /* Tier 1: User Entities (Green) */
+    .tier-users {
+      background: #ecfdf5;
+      border: 2px solid #6ee7b7;
+    }
+    .tier-users .tier-pill {
+      background: #047857;
+      color: #ffffff;
+    }
+    .tier-users .tier-role {
+      background: #10b981;
+    }
+
+    /* Tier 2: Mobile App (Blue) */
+    .tier-app {
+      background: #eff6ff;
+      border: 2px solid #93c5fd;
+    }
+    .tier-app .tier-pill {
+      background: #1d4ed8;
+      color: #ffffff;
+    }
+    .tier-app .tier-role {
+      background: #2563eb;
+    }
+
+    /* Tier 3: Backend & Storage (Purple) */
+    .tier-backend {
+      background: #f5f3ff;
+      border: 2px solid #c4b5fd;
+    }
+    .tier-backend .tier-pill {
+      background: #6d28d9;
+      color: #ffffff;
+    }
+    .tier-backend .tier-role {
+      background: #7c3aed;
+    }
+
+    /* App Modules Cards */
+    .app-card {
+      background: #ffffff;
+      border: 1.5px solid #93c5fd;
+      border-radius: 10px;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-width: 170px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .app-card-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-top: 2px;
+    }
+    .app-card-sub {
+      font-size: 9.5px;
+      color: #64748b;
+    }
+
+    /* Backend Cards */
+    .backend-card {
+      background: #ffffff;
+      border: 1.5px solid #c4b5fd;
+      border-radius: 10px;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-width: 170px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .backend-card-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #5b21b6;
+    }
+
+    /* Center Decision Box */
+    .decision-row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin: -2px 0;
+    }
+    .decision-pill {
+      background: #fee2e2;
+      border: 2px solid #f87171;
+      border-radius: 20px;
+      padding: 6px 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #991b1b;
+      box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2);
+    }
+    .decision-pill span {
+      font-size: 11px;
+      font-weight: 600;
+      color: #7f1d1d;
+    }
+
+    /* Dual Engines Row (Split Green & Orange) */
+    .engines-row {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .engine-box {
+      border-radius: 12px;
+      padding: 12px 18px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .engine-box.green {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+    }
+    .engine-box.orange {
+      background: #fff7ed;
+      border: 2px solid #fdba74;
+    }
+    .engine-header {
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      width: fit-content;
+    }
+    .engine-box.green .engine-header { background: #15803d; }
+    .engine-box.orange .engine-header { background: #c2410c; }
+
+    .engine-card-inner {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid #e2e8f0;
+    }
+    .engine-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .engine-card-desc {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* Bottom Outcomes Tier (Dark Navy) */
+    .tier-outcomes {
+      width: 100%;
+      background: #f1f5f9;
+      border: 2px solid #94a3b8;
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+    }
+    .outcomes-pill {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .outcomes-cards-row {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 16px;
+      padding-left: 20px;
+    }
+    .outcome-card {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 280px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .outcome-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .outcome-desc {
+      font-size: 10px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="arch-container">
+
+    <!-- TIER 1: USER ENTITIES TIER -->
+    <div class="tier-box tier-users">
+      <div class="tier-badge-col">
+        <div class="tier-pill">👥 User Entities Tier</div>
+        <div class="tier-role">DESIGN ACTORS<br>(Kids, Learners, Homeowners, Educators)</div>
+      </div>
+      <div class="tier-cards-row">
+        
+        <div class="actor-card">
+          <div class="actor-icon">🧒</div>
+          <div class="actor-title">Young Learner / Kid</div>
+          <div class="actor-sub">Spatial &amp; Color Games</div>
+        </div>
+
+        <div class="actor-card">
+          <div class="actor-icon">🎨</div>
+          <div class="actor-title">Design Novice</div>
+          <div class="actor-sub">Room Style &amp; Materials</div>
+        </div>
+
+        <div class="actor-card">
+          <div class="actor-icon">🏠</div>
+          <div class="actor-title">Homeowner</div>
+          <div class="actor-sub">Room Photo &amp; 3D Plan</div>
+        </div>
+
+        <div class="actor-card">
+          <div class="actor-icon">👨‍🏫</div>
+          <div class="actor-title">Parent / Educator</div>
+          <div class="actor-sub">Progress &amp; Parental Gate</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TIER 2: MOBILE APPLICATION TIER -->
+    <div class="tier-box tier-app">
+      <div class="tier-badge-col">
+        <div class="tier-pill">📱 Application Tier</div>
+        <div class="tier-role" style="background:#2563eb;">DESIGNVERSE<br>Mobile &amp; Web App (Flutter / WebGL)</div>
+      </div>
+      <div class="tier-cards-row">
+        
+        <div class="app-card">
+          <div style="font-size: 20px;">🔐</div>
+          <div class="app-card-title">Register &amp; Login</div>
+          <div class="app-card-sub">Child Profile &amp; Parent Gate</div>
+        </div>
+
+        <div class="app-card">
+          <div style="font-size: 20px;">📸</div>
+          <div class="app-card-title">Photo &amp; 2D Plan Input</div>
+          <div class="app-card-sub">Camera Ingestion &amp; Canvas</div>
+        </div>
+
+        <div class="app-card">
+          <div style="font-size: 20px;">🎮</div>
+          <div class="app-card-title">3D Viewport &amp; HUD</div>
+          <div class="app-card-sub">360° Rotator &amp; Real-Time PBR</div>
+        </div>
+
+        <div class="app-card">
+          <div style="font-size: 20px;">🎙️</div>
+          <div class="app-card-title">Voice AI Copilot</div>
+          <div class="app-card-sub">Hands-Free Speech Controls</div>
+        </div>
+
+        <div class="app-card">
+          <div style="font-size: 20px;">🏆</div>
+          <div class="app-card-title">Design Studio &amp; Badges</div>
+          <div class="app-card-sub">10 Levels, Challenges &amp; XP</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TIER 3: BACKEND & DATABASE TIER -->
+    <div class="tier-box tier-backend">
+      <div class="tier-badge-col">
+        <div class="tier-pill">⚡ Backend Tier</div>
+        <div class="tier-role" style="background:#7c3aed;">FASTAPI &amp; STORAGE<br>(Contracts, Persistence, State Sync)</div>
+      </div>
+      <div class="tier-cards-row">
+        
+        <div class="backend-card">
+          <div style="font-size: 20px;">🛡️</div>
+          <div class="backend-card-title">Authentication &amp; COPPA</div>
+          <div class="app-card-sub">Zero AD_ID &amp; Privacy Rules</div>
+        </div>
+
+        <div class="backend-card">
+          <div style="font-size: 20px;">🗄️</div>
+          <div class="backend-card-title">PostgreSQL / SQLite</div>
+          <div class="app-card-sub">Room3DScene JSON Documents</div>
+        </div>
+
+        <div class="backend-card">
+          <div style="font-size: 20px;">⏱️</div>
+          <div class="backend-card-title">Ephemeral 15-Min Cache</div>
+          <div class="app-card-sub">Local Temp Vision Stream</div>
+        </div>
+
+        <div class="backend-card">
+          <div style="font-size: 20px;">🔄</div>
+          <div class="backend-card-title">Realtime Sync &amp; WebSockets</div>
+          <div class="app-card-sub">State Diffs &amp; Event Stream</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MIDDLE DECISION / VALIDATION GATEWAY -->
+    <div class="decision-row">
+      <div class="decision-pill">
+        <span>⚙️</span> Room3DScene Schema Validation Check (v1.0)
+        <span>(Plan Closed-Loop, Door Bounds, Clear Walkways &amp; Scoring)</span>
+      </div>
+    </div>
+
+    <!-- TIER 4: DUAL PROCESSING ENGINES -->
+    <div class="engines-row">
+      
+      <!-- Green Box: Spatial 3D Engine -->
+      <div class="engine-box green">
+        <div class="engine-header">SPATIAL 3D &amp; RECONSTRUCTION ENGINE</div>
+        <div class="engine-card-inner">
+          <div style="font-size: 32px;">🌐</div>
+          <div>
+            <div class="engine-card-title">Unity 3D / Three.js WebGL Engine</div>
+            <div class="engine-card-desc">
+              • Procedural CSG Wall Extrusion &amp; Bounding Doors<br>
+              • In-Memory Procedural Furniture (Dining, Wardrobe, TV Unit)<br>
+              • Time-of-Day Sky Presets (Golden Morning, Noon, Sunset, Night)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orange Box: Gamified Learning Engine -->
+      <div class="engine-box orange">
+        <div class="engine-header">GAMIFIED MASTERY &amp; TUTOR ENGINE</div>
+        <div class="engine-card-inner">
+          <div style="font-size: 32px;">🎓</div>
+          <div>
+            <div class="engine-card-title">Learning Engine &amp; AI Room Buddy Sparky</div>
+            <div class="engine-card-desc">
+              • 15-Node Skills Mastery DAG with Non-Circular Verification<br>
+              • Append-Only UUIDv4 XP Ledger (Idempotent Leveling Curve)<br>
+              • FeatureUnlockManager Strict Server-Side Gating
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TIER 5: SYSTEM OUTCOMES TIER -->
+    <div class="tier-outcomes">
+      <div class="outcomes-pill">System Outcomes</div>
+      <div class="outcomes-cards-row">
+        
+        <div class="outcome-card">
+          <div style="font-size: 24px;">✨</div>
+          <div>
+            <div class="outcome-title">Interactive 3D Digital Twin</div>
+            <div class="outcome-desc">60 FPS Real-Time Editing &amp; 95.8% Reconstruction</div>
+          </div>
+        </div>
+
+        <div class="outcome-card">
+          <div style="font-size: 24px;">🔒</div>
+          <div>
+            <div class="outcome-title">100% On-Device Privacy</div>
+            <div class="outcome-desc">Zero Cloud Photos, Zero AD_ID, COPPA Compliant</div>
+          </div>
+        </div>
+
+        <div class="outcome-card">
+          <div style="font-size: 24px;">📈</div>
+          <div>
+            <div class="outcome-title">42% Faster Spatial Learning</div>
+            <div class="outcome-desc">10 Levels, 15 Skills, and Verified Pedagogical Progress</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

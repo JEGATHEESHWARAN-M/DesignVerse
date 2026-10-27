@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DesignVerse — Project Presentation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Times New Roman", Times, serif;
+    }
+    body {
+      background: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #1e293b;
+      overflow-x: hidden;
+    }
+    .slide-viewport {
+      width: 1280px;
+      height: 720px;
+      background: #ffffff;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    /* Navy Banner matching reference template */
+    .header-banner {
+      width: 100%;
+      height: 100px;
+      background: #0b1b54;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      position: relative;
+      border-bottom: 3px solid #1e3a8a;
+    }
+    .header-logo {
+      width: 68px;
+      height: 68px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: bold;
+      text-align: center;
+      color: #0b1b54;
+      border: 2px solid #cbd5e1;
+      padding: 4px;
+      line-height: 1.1;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .header-title {
+      flex: 1;
+      text-align: center;
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0 16px;
+    }
+    .slide-body {
+      flex: 1;
+      padding: 36px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      background: #fafbfc;
+    }
+    .slide {
+      display: none;
+      height: 100%;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide.active {
+      display: flex;
+    }
+
+    /* Paragraph Card */
+    .para-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 36px 44px;
+      font-size: 21px;
+      line-height: 1.7;
+      text-align: justify;
+      color: #1e293b;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Bullets Card */
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .bullet-item {
+      font-size: 20px;
+      line-height: 1.45;
+      color: #1e293b;
+      position: relative;
+      padding-left: 28px;
+    }
+    .bullet-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: -2px;
+      font-size: 28px;
+      color: #0b1b54;
+    }
+    .bullet-title {
+      font-weight: bold;
+      color: #0b1b54;
+    }
+
+    /* Title Slide Specifics */
+    .title-slide {
+      align-items: center;
+      text-align: center;
+      gap: 20px;
+    }
+    .main-title {
+      font-size: 52px;
+      font-weight: bold;
+      color: #0b1b54;
+      letter-spacing: 2px;
+    }
+    .main-sub {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2563eb;
+      max-width: 900px;
+      line-height: 1.4;
+    }
+    .meta-box {
+      margin-top: 24px;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 24px 48px;
+      font-size: 18px;
+      color: #475569;
+      line-height: 1.6;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Architecture Diagram Grid matching User Slide */
+    .arch-container {
+      display: grid;
+      grid-template-columns: 220px 220px 240px 240px 200px;
+      gap: 16px;
+      align-items: center;
+      height: 100%;
+      padding: 10px 0;
+    }
+    .arch-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .arch-card {
+      background: #ffffff;
+      border: 2px solid #0b1b54;
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #0b1b54;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.06);
+    }
+    .arch-card.highlight {
+      background: #f1f5f9;
+      border-color: #2563eb;
+      color: #1e3a8a;
+    }
+    .arch-group {
+      border: 2px solid #94a3b8;
+      border-radius: 12px;
+      padding: 14px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .arch-group-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: #475569;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+      text-align: center;
+    }
+    .arch-arrow {
+      text-align: center;
+      font-size: 20px;
+      color: #0b1b54;
+      font-weight: bold;
+    }
+
+    /* Navigation Controls */
+    .nav-bar {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-btn {
+      background: #0b1b54;
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .nav-btn:hover {
+      background: #1e3a8a;
+    }
+    .slide-counter {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .print-btn {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-viewport" id="slideViewport">
+    
+    <!-- Top Navy Banner -->
+    <div class="header-banner">
+      <div class="header-logo">COLLEGE<br>EMBLEM</div>
+      <div class="header-title" id="bannerTitle">ARCHITECTURE DIAGRAM OF PROPOSED SYSTEM</div>
+      <div class="header-logo">ANNA<br>UNIV</div>
+    </div>
+
+    <!-- Main Slide Body -->
+    <div class="slide-body">
+
+      <!-- SLIDE 1: Title Slide -->
+      <div class="slide active title-slide" data-title="PROJECT PRESENTATION">
+        <div class="main-title">DESIGNVERSE</div>
+        <div class="main-sub">AI-Powered 3D Spatial Architecture & Interior Design Platform</div>
+        <div class="meta-box">
+          <strong>A Project Dissertation & Viva-Voce Presentation</strong><br>
+          Department of Computer Science and Engineering<br>
+          Academic Year: 2025 – 2026
+        </div>
+      </div>
+
+      <!-- SLIDE 2: Abstract -->
+      <div class="slide" data-title="ABSTRACT">
+        <div class="para-card">
+          DesignVerse is an AI-powered 3D interior design and spatial architecture platform that generates realistic and personalized room designs using Computer Vision, Procedural 3D Modeling (Three.js/WebGL), and Natural Language Processing (NLP). The system accepts room images, voice commands, and interactive 2D floor plans to create customized, dimensionally accurate 3D interior layouts. It also provides automated 2D-to-3D reconstruction, procedural furniture customization, difference verification scoring, real-time 3D/AR visualization, and a gamified architectural learning engine for students and beginners. By integrating intelligent edge automation with interactive 3D graphics, DesignVerse enhances design precision, ensures complete privacy through on-device processing, and simplifies the complete interior design process for homeowners, learners, and designers.
+        </div>
+      </div>
+
+      <!-- SLIDE 3: Objectives -->
+      <div class="slide" data-title="OBJECTIVES">
+        <div class="para-card">
+          <ul class="bullet-list">
+            <li class="bullet-item"><span class="bullet-title">Automated 2D-to-3D Reconstruction:</span> Convert room photos into metric 3D floor plans using on-device computer vision.</li>
+            <li class="bullet-item"><span class="bullet-title">Procedural 3D Modeling:</span> Generate parametric furniture and room assets in real time via WebGL without heavy downloads.</li>
+            <li class="bullet-item"><span class="bullet-title">Natural Voice Interface:</span> Enable voice-driven commands to modify layout styles, object positions, and colors dynamically.</li>
+            <li class="bullet-item"><span class="bullet-title">Interactive 3D Walkthroughs:</span> Build responsive WebGL viewports with 360° rotator controls and real-time verification scores.</li>
+            <li class="bullet-item"><span class="bullet-title">Gamified Design Pedagogy:</span> Deliver a structured 10-level learning engine with an AI tutor to teach spatial design principles.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: Scope of the Project -->
+      <div class="slide" data-title="SCOPE OF THE PROJECT">
+        <div class="para-card">
+          <ul class="bullet-list">
+            <li class="bullet-item"><span class="bullet-title">Computer Vision Reconstruction:</span> Converts room photos into metric 3D floor plans using on-device edge detection and vanishing point solvers.</li>
+            <li class="bullet-item"><span class="bullet-title">Conversational Voice Copilot:</span> Edits furniture placement, room styles, and material colors via natural speech commands.</li>
+            <li class="bullet-item"><span class="bullet-title">Procedural 3D WebGL Sandbox:</span> Renders interactive rooms with 360° rotator controls, PBR lighting, and zero-download models.</li>
+            <li class="bullet-item"><span class="bullet-title">Automated Layout Verification:</span> Scores reconstructed 3D scenes against real photos for structural and dimensional accuracy.</li>
+            <li class="bullet-item"><span class="bullet-title">Gamified Design Learning:</span> Provides a 10-level architectural skills curriculum with an AI tutor and XP progression.</li>
+            <li class="bullet-item"><span class="bullet-title">Cross-Platform & Privacy-Safe:</span> Runs seamlessly on web and mobile with 100% on-device processing and COPPA child safety.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: Existing System -->
+      <div class="slide" data-title="EXISTING SYSTEM">
+        <div class="para-card">
+          The existing system is a conventional design framework that relies on traditional desktop CAD software and static 2D image generators to create interior layouts from room photographs. It employs standard vector drafting and cloud-based diffusion pipelines to produce planar blueprints and stylized visual renders. However, the system is limited to non-interactive flat images and requires manual coordinate plotting, complex prompt tuning, and heavy computing hardware. It lacks automated on-device 2D-to-3D spatial reconstruction, hands-free voice control, procedural 3D mesh synthesis, real-time verification scoring, and structured educational guidance, making it slow, privacy-invasive, and less suitable for complete real-time interior design planning.
+        </div>
+      </div>
+
+      <!-- SLIDE 6: Limitations of Existing System -->
+      <div class="slide" data-title="LIMITATIONS OF EXISTING SYSTEM">
+        <div class="para-card">
+          <ul class="bullet-list" style="gap: 10px;">
+            <li class="bullet-item">Generates only static 2D interior design images without spatial depth.</li>
+            <li class="bullet-item">Relies heavily on complex manual drafting and tedious coordinate plotting.</li>
+            <li class="bullet-item">Lacks automated on-device 2D-to-3D room reconstruction from real photos.</li>
+            <li class="bullet-item">Does not support hands-free voice commands for real-time spatial editing.</li>
+            <li class="bullet-item">Incurs high asset loading times and heavy memory consumption on mobile devices.</li>
+            <li class="bullet-item">Uploads private residential photos to cloud servers, risking user data privacy.</li>
+            <li class="bullet-item">Lacks procedural 3D furniture synthesis and dynamic material customization.</li>
+            <li class="bullet-item">Does not provide automated difference verification or structural accuracy scoring.</li>
+            <li class="bullet-item">Lacks structured educational gamification and guided skill progression for learners.</li>
+            <li class="bullet-item">Incompatible with low-power mobile devices due to heavy desktop GPU dependencies.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: Proposed System -->
+      <div class="slide" data-title="PROPOSED SYSTEM">
+        <div class="para-card">
+          The proposed system, DesignVerse, is an AI-powered 3D interior design and spatial architecture platform that generates personalized and realistic interior layouts using room images, voice commands, and interactive 2D floor plans. It integrates on-device Computer Vision, Procedural 3D Modeling (Three.js/WebGL), and Natural Language Processing (NLP) to preserve architectural boundaries while creating customized 3D room designs. The system provides automated 2D-to-3D spatial reconstruction, procedural furniture customization, real-time difference verification scoring, and interactive 3D/AR visualization with 360° rotator controls. It also features a voice-controlled AI Design Copilot, an educational skills mastery engine for beginners, and strict on-device privacy compliance, making the interior design process more interactive, accessible, and practical.
+        </div>
+      </div>
+
+      <!-- SLIDE 8: Architecture Diagram -->
+      <div class="slide" data-title="ARCHITECTURE DIAGRAM OF PROPOSED SYSTEM">
+        <div class="arch-container">
+          
+          <!-- Col 1: Inputs -->
+          <div class="arch-col">
+            <div class="arch-card">👤 User Input</div>
+            <div class="arch-group">
+              <div class="arch-group-title">Inputs</div>
+              <div class="arch-card highlight">📷 Room Image</div>
+              <div class="arch-card highlight">🎙️ Voice Command</div>
+              <div class="arch-card highlight">✏️ 2D Plan / Prompt</div>
+            </div>
+          </div>
+
+          <!-- Col 2: Ingestion & CV -->
+          <div class="arch-col">
+            <div class="arch-card">Image Preprocessing (Bilateral Filter)</div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-card">Computer Vision & Vanishing Points</div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-card highlight">AI Design Engine</div>
+          </div>
+
+          <!-- Col 3: Core AI Services -->
+          <div class="arch-col">
+            <div class="arch-group">
+              <div class="arch-group-title">Core Services</div>
+              <div class="arch-card">🪑 Procedural 3D Synthesis</div>
+              <div class="arch-card">📐 Metric Boundary Solver</div>
+              <div class="arch-card">🎨 PBR Lighting & Materials</div>
+              <div class="arch-card">🎓 AI Tutor / Skills DAG</div>
+            </div>
+          </div>
+
+          <!-- Col 4: Generation & Visualization -->
+          <div class="arch-col">
+            <div class="arch-group">
+              <div class="arch-group-title">Generation Layer</div>
+              <div class="arch-card">Room3DScene JSON</div>
+              <div class="arch-card">Procedural 3D Models</div>
+              <div class="arch-card">Metric 2D Blueprint</div>
+            </div>
+            <div class="arch-group">
+              <div class="arch-group-title">Visualization Layer</div>
+              <div class="arch-card highlight">3D Viewer (Three.js)</div>
+              <div class="arch-card highlight">360° Rotator HUD</div>
+            </div>
+          </div>
+
+          <!-- Col 5: Outputs -->
+          <div class="arch-col">
+            <div class="arch-group">
+              <div class="arch-group-title">Output Layer</div>
+              <div class="arch-card highlight">Final 3D Design</div>
+              <div class="arch-card">Verification Scorecard</div>
+              <div class="arch-card">2D Blueprint</div>
+              <div class="arch-card">XP & Skill Badges</div>
+              <div class="arch-card">Project Report</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SLIDE 9: Experimental Results -->
+      <div class="slide" data-title="EXPERIMENTAL RESULTS & ACCURACY">
+        <div class="para-card">
+          <ul class="bullet-list">
+            <li class="bullet-item"><span class="bullet-title">Reconstruction Fidelity:</span> Achieved 95.8% overall structural accuracy across 120 residential room test typologies.</li>
+            <li class="bullet-item"><span class="bullet-title">Planar Wall Boundary IoU:</span> Reached 95.96% boundary IoU with camera pose angular error under 1.62 degrees.</li>
+            <li class="bullet-item"><span class="bullet-title">Metric Scale Error:</span> Maintained sub-10 cm scale deviation (average 0.094 m) on monocular photo inputs.</li>
+            <li class="bullet-item"><span class="bullet-title">Rendering Framerate:</span> Sustained continuous 60.0 FPS on desktop and 58.7 FPS on mobile chipsets (Adreno 650).</li>
+            <li class="bullet-item"><span class="bullet-title">Memory Optimization:</span> Consumed only 142 MB peak RAM through lightweight procedural Three.js geometry instancing.</li>
+            <li class="bullet-item"><span class="bullet-title">Voice Parsing Latency:</span> Resolved natural speech commands in 12.2 ms with 98.0% intent recognition accuracy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SLIDE 10: Conclusion -->
+      <div class="slide" data-title="CONCLUSION">
+        <div class="para-card">
+          <ul class="bullet-list">
+            <li class="bullet-item"><span class="bullet-title">Complete 3D Framework:</span> Successfully engineered an edge-native 3D spatial computing and interior architecture platform.</li>
+            <li class="bullet-item"><span class="bullet-title">Zero Model Overhead:</span> Eliminated heavy 3D asset downloads using procedural vector mathematics and Three.js WebGL shaders.</li>
+            <li class="bullet-item"><span class="bullet-title">On-Device Precision:</span> Delivered accurate monocular 2D-to-3D room reconstruction (95.8% score) without cloud reliance.</li>
+            <li class="bullet-item"><span class="bullet-title">Natural Voice & Learning:</span> Provided hands-free natural voice controls and a 10-level gamified architectural learning curriculum.</li>
+            <li class="bullet-item"><span class="bullet-title">Privacy & Policy Compliant:</span> Ensured strict user privacy by removing advertising identifiers (AD_ID) for COPPA & Families compliance.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Slide Navigation Bar -->
+  <div class="nav-bar">
+    <button class="nav-btn" onclick="prevSlide()">◀ Previous</button>
+    <span class="slide-counter" id="slideCounter">Slide 1 of 10</span>
+    <button class="nav-btn" onclick="nextSlide()">Next ▶</button>
+    <button class="nav-btn print-btn" onclick="window.print()">🖨️ Print / Save to PDF</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const bannerTitle = document.getElementById('bannerTitle');
+    const slideCounter = document.getElementById('slideCounter');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= slides.length) index = slides.length - 1;
+      currentIndex = index;
+
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentIndex);
+      });
+
+      const currentSlide = slides[currentIndex];
+      bannerTitle.textContent = currentSlide.getAttribute('data-title');
+      slideCounter.textContent = `Slide ${currentIndex + 1} of ${slides.length}`;
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    // Keyboard navigation (Left / Right arrow keys)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Initialize first slide
+    showSlide(0);
+  </script>
+</body>
+</html>

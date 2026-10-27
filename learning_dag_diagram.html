@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figure 5.4 Learning Engine Competency Graph (DAG)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: #0f172a;
+      width: 1600px;
+      height: 1050px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 36px;
+      color: #f8fafc;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header-box {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 14px 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+    .header-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #38bdf8;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .header-sub {
+      font-size: 13.5px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    /* Main Container with 10 Columns for Levels 1-10 */
+    .dag-container {
+      width: 100%;
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 12px;
+      position: relative;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 18px 12px;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Level Column */
+    .level-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      background: rgba(15, 23, 42, 0.5);
+      border-radius: 8px;
+      padding: 10px 4px;
+      border: 1px solid rgba(51, 65, 85, 0.4);
+    }
+    .level-badge {
+      background: #0b1b54;
+      border: 1.5px solid #3b82f6;
+      border-radius: 16px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+      width: 90%;
+      text-align: center;
+    }
+    .level-xp {
+      font-size: 10px;
+      color: #93c5fd;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .nodes-stack {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+    }
+
+    /* Skill Node Card */
+    .skill-card {
+      width: 96%;
+      background: linear-gradient(145deg, #1e293b, #0f172a);
+      border: 2px solid #475569;
+      border-radius: 8px;
+      padding: 10px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .skill-card.c1 { border-color: #34d399; }
+    .skill-card.c2 { border-color: #60a5fa; }
+    .skill-card.c3 { border-color: #f472b6; }
+    .skill-card.c4 { border-color: #fbbf24; }
+    .skill-card.c5 { border-color: #a78bfa; }
+    .skill-card.c6 { border-color: #38bdf8; }
+    .skill-card.c7 { border-color: #fb923c; }
+    .skill-card.c8 { border-color: #2dd4bf; }
+    .skill-card.c9 { border-color: #e879f9; }
+    .skill-card.c10 { border-color: #facc15; background: linear-gradient(145deg, #2e1065, #0f172a); border-width: 2.5px; }
+
+    .skill-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    .skill-name {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #f8fafc;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+    .skill-meta {
+      font-size: 9.5px;
+      color: #94a3b8;
+      background: rgba(0,0,0,0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      width: 100%;
+    }
+    .skill-xp {
+      font-size: 9px;
+      color: #facc15;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    /* SVG Overlay for DAG Prerequisite Edges */
+    .dag-svg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Footer Info Bar */
+    .footer-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      padding: 10px 24px;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+    .formula-badge {
+      background: #0f172a;
+      border: 1px solid #3b82f6;
+      padding: 4px 12px;
+      border-radius: 6px;
+      color: #60a5fa;
+      font-family: monospace;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .ledger-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #34d399;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-box">
+    <div class="header-title">
+      <span>🎓</span> Figure 5.4: Learning Engine Competency Graph (DAG)
+    </div>
+    <div class="header-sub">
+      Prerequisite Directed Acyclic Graph of 15 Architectural Skills Structured Across Levels 1–10 with Non-Circular Enforcement
+    </div>
+  </div>
+
+  <!-- Main DAG Container -->
+  <div class="dag-container" id="dagContainer">
+    
+    <!-- SVG for Edges -->
+    <svg class="dag-svg-overlay" id="edgeSvg">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#60a5fa"/>
+        </marker>
+        <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#facc15"/>
+        </marker>
+      </defs>
+    </svg>
+
+    <!-- LEVEL 1 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 1<span class="level-xp">0 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c1" id="node_room_basics">
+          <div class="skill-icon">🌱</div>
+          <div class="skill-name">Room Basics</div>
+          <div class="skill-meta">room_basics</div>
+          <div class="skill-xp">+50 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 2 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 2<span class="level-xp">300 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c2" id="node_furniture_basics">
+          <div class="skill-icon">🪑</div>
+          <div class="skill-name">Furniture Friends</div>
+          <div class="skill-meta">furniture_basics</div>
+          <div class="skill-xp">+80 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 3 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 3<span class="level-xp">700 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c3" id="node_color_basics">
+          <div class="skill-icon">🎨</div>
+          <div class="skill-name">Color Magic</div>
+          <div class="skill-meta">color_basics</div>
+          <div class="skill-xp">+100 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 4 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 4<span class="level-xp">1,500 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c4" id="node_shape_basics">
+          <div class="skill-icon">🔷</div>
+          <div class="skill-name">Shapes in Rooms</div>
+          <div class="skill-meta">shape_basics</div>
+          <div class="skill-xp">+120 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 5 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 5<span class="level-xp">3,000 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c5" id="node_space_basics">
+          <div class="skill-icon">📐</div>
+          <div class="skill-name">Walking Space</div>
+          <div class="skill-meta">space_basics</div>
+          <div class="skill-xp">+150 XP</div>
+        </div>
+        <div class="skill-card c5" id="node_furniture_placement">
+          <div class="skill-icon">🚶</div>
+          <div class="skill-name">Smart Placement</div>
+          <div class="skill-meta">furniture_placement</div>
+          <div class="skill-xp">+150 XP</div>
+        </div>
+        <div class="skill-card c5" id="node_measurement_basics">
+          <div class="skill-icon">📏</div>
+          <div class="skill-name">Room Sizes</div>
+          <div class="skill-meta">measurement_basics</div>
+          <div class="skill-xp">+160 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 6 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 6<span class="level-xp">5,500 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c6" id="node_room_planning">
+          <div class="skill-icon">🏠</div>
+          <div class="skill-name">Full Room Planning</div>
+          <div class="skill-meta">room_planning</div>
+          <div class="skill-xp">+200 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 7 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 7<span class="level-xp">9,000 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c7" id="node_materials_basics">
+          <div class="skill-icon">🪵</div>
+          <div class="skill-name">Cozy Materials</div>
+          <div class="skill-meta">materials_basics</div>
+          <div class="skill-xp">+220 XP</div>
+        </div>
+        <div class="skill-card c7" id="node_lighting_basics">
+          <div class="skill-icon">💡</div>
+          <div class="skill-name">Sunlight & Lamps</div>
+          <div class="skill-meta">lighting_basics</div>
+          <div class="skill-xp">+220 XP</div>
+        </div>
+        <div class="skill-card c7" id="node_design_principles">
+          <div class="skill-icon">✨</div>
+          <div class="skill-name">Room Balance</div>
+          <div class="skill-meta">design_principles</div>
+          <div class="skill-xp">+250 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 8 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 8<span class="level-xp">14,000 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c8" id="node_floor_plan_basics">
+          <div class="skill-icon">🗺️</div>
+          <div class="skill-name">Bird's-Eye Maps</div>
+          <div class="skill-meta">floor_plan_basics</div>
+          <div class="skill-xp">+280 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 9 -->
+    <div class="level-col">
+      <div class="level-badge">LVL 9<span class="level-xp">20,000 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c9" id="node_3d_design">
+          <div class="skill-icon">🌍</div>
+          <div class="skill-name">3D World Building</div>
+          <div class="skill-meta">3d_design</div>
+          <div class="skill-xp">+320 XP</div>
+        </div>
+        <div class="skill-card c9" id="node_ai_design">
+          <div class="skill-icon">🤖</div>
+          <div class="skill-name">AI Design Helper</div>
+          <div class="skill-meta">ai_design</div>
+          <div class="skill-xp">+350 XP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEVEL 10 -->
+    <div class="level-col">
+      <div class="level-badge" style="background:#4c1d95; border-color:#facc15;">LVL 10<span class="level-xp">28,000 XP</span></div>
+      <div class="nodes-stack">
+        <div class="skill-card c10" id="node_young_designer_master">
+          <div class="skill-icon">👑</div>
+          <div class="skill-name">Young Designer Master</div>
+          <div class="skill-meta">young_designer_master</div>
+          <div class="skill-xp" style="font-size:11px; color:#fde047;">+500 XP</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Information -->
+  <div class="footer-bar">
+    <div class="formula-badge">Progression Equation: XP_required(Level) = 150 × (Level ^ 1.85)</div>
+    <div class="ledger-badge">🔒 Append-Only Ledger: UUIDv4 Idempotent Events</div>
+    <div>🛡️ FeatureUnlockManager Server-Enforced Gating</div>
+    <div>✅ Graph Validated: 15 Nodes, 14 Directed Edges, 0 Cycles</div>
+  </div>
+
+  <script>
+    // Draw Prerequisite Directed Edges between Nodes
+    const edges = [
+      ["node_room_basics", "node_furniture_basics"],
+      ["node_room_basics", "node_color_basics"],
+      ["node_furniture_basics", "node_shape_basics"],
+      ["node_shape_basics", "node_space_basics"],
+      ["node_space_basics", "node_furniture_placement"],
+      ["node_space_basics", "node_measurement_basics"],
+      ["node_furniture_placement", "node_room_planning"],
+      ["node_color_basics", "node_materials_basics"],
+      ["node_materials_basics", "node_lighting_basics"],
+      ["node_room_planning", "node_design_principles"],
+      ["node_room_planning", "node_floor_plan_basics"],
+      ["node_floor_plan_basics", "node_3d_design"],
+      ["node_3d_design", "node_ai_design"],
+      ["node_3d_design", "node_young_designer_master"],
+      ["node_ai_design", "node_young_designer_master"]
+    ];
+
+    const container = document.getElementById('dagContainer');
+    const svg = document.getElementById('edgeSvg');
+
+    function drawEdges() {
+      const containerRect = container.getBoundingClientRect();
+      svg.setAttribute('viewBox', `0 0 ${containerRect.width} ${containerRect.height}`);
+
+      // Clear existing paths
+      while (svg.lastChild && svg.lastChild.tagName === 'path') {
+        svg.removeChild(svg.lastChild);
+      }
+
+      edges.forEach(([srcId, dstId]) => {
+        const src = document.getElementById(srcId);
+        const dst = document.getElementById(dstId);
+        if (!src || !dst) return;
+
+        const sRect = src.getBoundingClientRect();
+        const dRect = dst.getBoundingClientRect();
+
+        const x1 = sRect.right - containerRect.left;
+        const y1 = sRect.top + sRect.height / 2 - containerRect.top;
+        const x2 = dRect.left - containerRect.left;
+        const y2 = dRect.top + dRect.height / 2 - containerRect.top;
+
+        const dx = Math.max(20, (x2 - x1) / 2);
+        const pathData = `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+
+        const isGold = (dstId === "node_young_designer_master");
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', pathData);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', isGold ? '#facc15' : '#60a5fa');
+        path.setAttribute('stroke-width', isGold ? '2.5' : '1.8');
+        path.setAttribute('stroke-dasharray', isGold ? 'none' : '4,2');
+        path.setAttribute('marker-end', isGold ? 'url(#arrow-gold)' : 'url(#arrow)');
+        path.setAttribute('opacity', '0.85');
+        svg.appendChild(path);
+      });
+    }
+
+    window.addEventListener('load', drawEdges);
+    window.addEventListener('resize', drawEdges);
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+/* ============================================================
+   DESIGNVERSE — Additional Styles for Stats & Special Elements
+============================================================ */
+
+/* Fix stat number layout */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}

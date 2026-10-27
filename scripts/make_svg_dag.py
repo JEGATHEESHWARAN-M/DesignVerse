@@ -1,0 +1,325 @@
+# Generate standalone SVG for Figure 5.4 Learning Engine Competency Graph (DAG)
+svg_content = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1020" width="100%" height="100%" style="background:#0F172A; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#60A5FA"/>
+    </marker>
+    <marker id="arrowGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#FACC15"/>
+    </marker>
+  </defs>
+
+  <!-- Header -->
+  <rect x="36" y="20" width="1528" height="76" rx="12" fill="url(#headerGrad)" stroke="#334155" stroke-width="1.5"/>
+  <text x="800" y="52" text-anchor="middle" fill="#38BDF8" font-size="22" font-weight="800" letter-spacing="1">🎓 Figure 5.4: Learning Engine Competency Graph (DAG)</text>
+  <text x="800" y="78" text-anchor="middle" fill="#94A3B8" font-size="13">Prerequisite Directed Acyclic Graph of 15 Architectural Skills Across Levels 1–10 (Non-Circular Verification)</text>
+
+  <!-- Main Background Container -->
+  <rect x="36" y="112" width="1528" height="800" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- 10 Level Columns -->
+  <!-- Level 1 -->
+  <g transform="translate(52, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 1</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">0 XP</text>
+
+    <!-- Node: room_basics -->
+    <g transform="translate(8, 330)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#34D399" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🌱</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11.5" font-weight="700">Room Basics</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="monospace">room_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+50 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 2 -->
+  <g transform="translate(202, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 2</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">300 XP</text>
+
+    <!-- Node: furniture_basics -->
+    <g transform="translate(8, 240)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#60A5FA" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🪑</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700">Furniture Friends</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="8.5" font-family="monospace">furniture_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+80 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 3 -->
+  <g transform="translate(352, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 3</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">700 XP</text>
+
+    <!-- Node: color_basics -->
+    <g transform="translate(8, 430)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#F472B6" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🎨</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11.5" font-weight="700">Color Magic</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="monospace">color_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+100 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 4 -->
+  <g transform="translate(502, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 4</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">1,500 XP</text>
+
+    <!-- Node: shape_basics -->
+    <g transform="translate(8, 240)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#FBBF24" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🔷</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700">Shapes in Rooms</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="monospace">shape_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+120 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 5 -->
+  <g transform="translate(652, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 5</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">3,000 XP</text>
+
+    <!-- Node: space_basics -->
+    <g transform="translate(8, 110)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#A78BFA" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">📐</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700">Walking Space</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="monospace">space_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+150 XP</text>
+    </g>
+
+    <!-- Node: furniture_placement -->
+    <g transform="translate(8, 240)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#A78BFA" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🚶</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700">Smart Placement</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="monospace">furniture_placement</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+150 XP</text>
+    </g>
+
+    <!-- Node: measurement_basics -->
+    <g transform="translate(8, 370)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#A78BFA" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">📏</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700">Room Sizes</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="8" font-family="monospace">measurement_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+160 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 6 -->
+  <g transform="translate(802, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 6</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">5,500 XP</text>
+
+    <!-- Node: room_planning -->
+    <g transform="translate(8, 240)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🏠</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="10.5" font-weight="700">Full Room Plan</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="monospace">room_planning</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+200 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 7 -->
+  <g transform="translate(952, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 7</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">9,000 XP</text>
+
+    <!-- Node: materials_basics -->
+    <g transform="translate(8, 110)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#FB923C" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🪵</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700">Cozy Materials</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="8.5" font-family="monospace">materials_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+220 XP</text>
+    </g>
+
+    <!-- Node: lighting_basics -->
+    <g transform="translate(8, 240)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#FB923C" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">💡</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="10.5" font-weight="700">Sunlight &amp; Lamps</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="8.5" font-family="monospace">lighting_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+220 XP</text>
+    </g>
+
+    <!-- Node: design_principles -->
+    <g transform="translate(8, 370)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#FB923C" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">✨</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="10.5" font-weight="700">Room Balance</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="8.5" font-family="monospace">design_principles</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+250 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 8 -->
+  <g transform="translate(1102, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 8</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">14,000 XP</text>
+
+    <!-- Node: floor_plan_basics -->
+    <g transform="translate(8, 240)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#2DD4BF" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🗺️</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="11" font-weight="700">Bird's-Eye Maps</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="8.5" font-family="monospace">floor_plan_basics</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+280 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 9 -->
+  <g transform="translate(1252, 128)">
+    <rect x="0" y="0" width="136" height="768" rx="8" fill="#0F172A" fill-opacity="0.5" stroke="#334155" stroke-width="1"/>
+    <rect x="8" y="12" width="120" height="34" rx="17" fill="#0B1B54" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="800">LVL 9</text>
+    <text x="68" y="40" text-anchor="middle" fill="#93C5FD" font-size="9">20,000 XP</text>
+
+    <!-- Node: 3d_design -->
+    <g transform="translate(8, 170)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#E879F9" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🌍</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="10.5" font-weight="700">3D World Build</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="monospace">3d_design</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+320 XP</text>
+    </g>
+
+    <!-- Node: ai_design -->
+    <g transform="translate(8, 310)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="120" height="96" rx="8" fill="#1E293B" stroke="#E879F9" stroke-width="2"/>
+      <text x="60" y="28" text-anchor="middle" font-size="20">🤖</text>
+      <text x="60" y="48" text-anchor="middle" fill="#F8FAFC" font-size="10.5" font-weight="700">AI Design Help</text>
+      <rect x="8" y="56" width="104" height="16" rx="4" fill="#0F172A"/>
+      <text x="60" y="68" text-anchor="middle" fill="#94A3B8" font-size="9" font-family="monospace">ai_design</text>
+      <text x="60" y="86" text-anchor="middle" fill="#FACC15" font-size="10" font-weight="700">+350 XP</text>
+    </g>
+  </g>
+
+  <!-- Level 10 -->
+  <g transform="translate(1402, 128)">
+    <rect x="0" y="0" width="144" height="768" rx="8" fill="#2E1065" fill-opacity="0.4" stroke="#FACC15" stroke-width="1.5"/>
+    <rect x="12" y="12" width="120" height="34" rx="17" fill="#4C1D95" stroke="#FACC15" stroke-width="2"/>
+    <text x="72" y="28" text-anchor="middle" fill="#FACC15" font-size="11" font-weight="800">LVL 10</text>
+    <text x="72" y="40" text-anchor="middle" fill="#FEF08A" font-size="9">28,000 XP</text>
+
+    <!-- Node: young_designer_master -->
+    <g transform="translate(10, 240)" filter="url(#cardShadow)">
+      <rect x="0" y="0" width="124" height="106" rx="8" fill="linear-gradient(145deg, #3B0764, #0F172A)" stroke="#FACC15" stroke-width="2.5"/>
+      <text x="62" y="32" text-anchor="middle" font-size="24">👑</text>
+      <text x="62" y="54" text-anchor="middle" fill="#FDE047" font-size="10.5" font-weight="800">Young Designer Master</text>
+      <rect x="8" y="62" width="108" height="16" rx="4" fill="#0F172A"/>
+      <text x="62" y="74" text-anchor="middle" fill="#FDE047" font-size="8" font-family="monospace">designer_master</text>
+      <text x="62" y="94" text-anchor="middle" fill="#FACC15" font-size="11" font-weight="800">+500 XP</text>
+    </g>
+  </g>
+
+  <!-- Connective Prerequisite Splines -->
+  <!-- room_basics (180, 506) -> furniture_basics (210, 416) -->
+  <path d="M 180 506 C 195 506, 195 416, 210 416" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- room_basics (180, 506) -> color_basics (360, 606) -->
+  <path d="M 180 506 C 270 506, 270 606, 360 606" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- furniture_basics (330, 416) -> shape_basics (510, 416) -->
+  <path d="M 330 416 L 510 416" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- shape_basics (630, 416) -> space_basics (660, 286) -->
+  <path d="M 630 416 C 645 416, 645 286, 660 286" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- space_basics (780, 286) -> furniture_placement (660, 416) [intra-col 5] -->
+  <path d="M 720 334 C 720 360, 720 360, 720 368" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- space_basics (780, 286) -> measurement_basics (660, 546) [intra-col 5] -->
+  <path d="M 720 464 C 720 490, 720 490, 720 498" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- furniture_placement (780, 416) -> room_planning (810, 416) -->
+  <path d="M 780 416 L 810 416" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- color_basics (480, 606) -> materials_basics (960, 286) -->
+  <path d="M 480 606 C 720 606, 720 286, 960 286" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- materials_basics (1020, 334) -> lighting_basics (1020, 368) -->
+  <path d="M 1020 334 L 1020 368" fill="none" stroke="#FB923C" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- room_planning (930, 416) -> design_principles (960, 546) -->
+  <path d="M 930 416 C 945 416, 945 546, 960 546" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- room_planning (930, 416) -> floor_plan_basics (1110, 416) -->
+  <path d="M 930 416 L 1110 416" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- floor_plan_basics (1230, 416) -> 3d_design (1260, 346) -->
+  <path d="M 1230 416 C 1245 416, 1245 346, 1260 346" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- 3d_design (1380, 346) -> ai_design (1260, 486) -->
+  <path d="M 1320 394 C 1320 420, 1320 420, 1320 438" fill="none" stroke="#E879F9" stroke-width="1.8" stroke-dasharray="4,2" marker-end="url(#arrow)"/>
+
+  <!-- 3d_design (1380, 346) -> young_designer_master (1412, 421) -->
+  <path d="M 1380 346 C 1395 346, 1395 421, 1412 421" fill="none" stroke="#FACC15" stroke-width="2.5" marker-end="url(#arrowGold)"/>
+
+  <!-- ai_design (1380, 486) -> young_designer_master (1412, 421) -->
+  <path d="M 1380 486 C 1395 486, 1395 421, 1412 421" fill="none" stroke="#FACC15" stroke-width="2.5" marker-end="url(#arrowGold)"/>
+
+  <!-- Bottom Footer Info Bar -->
+  <g transform="translate(36, 930)">
+    <rect x="0" y="0" width="1528" height="60" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+    
+    <rect x="24" y="14" width="380" height="32" rx="6" fill="#0F172A" stroke="#3B82F6"/>
+    <text x="214" y="34" text-anchor="middle" fill="#60A5FA" font-size="12" font-family="monospace" font-weight="700">XP_required(Level) = 150 × (Level ^ 1.85)</text>
+
+    <circle cx="440" cy="30" r="5" fill="#34D399"/>
+    <text x="454" y="34" fill="#34D399" font-size="12" font-weight="700">🔒 Append-Only Ledger (UUIDv4 Idempotent Events)</text>
+
+    <circle cx="830" cy="30" r="5" fill="#38BDF8"/>
+    <text x="844" y="34" fill="#CBD5E1" font-size="12" font-weight="600">🛡️ FeatureUnlockManager Server-Enforced Gating</text>
+
+    <rect x="1220" y="14" width="284" height="32" rx="6" fill="#0F172A" stroke="#22C55E"/>
+    <text x="1362" y="34" text-anchor="middle" fill="#22C55E" font-size="12" font-weight="700">✅ 15 Skills Validated (0 Cycles)</text>
+  </g>
+</svg>
+"""
+
+with open(r"d:\DesignVerse\learning_engine_competency_graph.svg", "w", encoding="utf-8") as f:
+    f.write(svg_content)
+print("Saved learning_engine_competency_graph.svg successfully!")

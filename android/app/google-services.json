@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "653508913614",
+    "project_id": "com-designverse-app",
+    "storage_bucket": "com-designverse-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653508913614:android:5bccc4cfabbe6529f0a39f",
+        "android_client_info": {
+          "package_name": "com.designverse.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq2YD_wBK9XWpLNvoHmQWFduP5pRhFO9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

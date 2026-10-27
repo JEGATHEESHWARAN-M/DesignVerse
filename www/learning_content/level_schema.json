@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DesignVerse Learning Level Schema",
+  "type": "object",
+  "required": ["level_id", "name", "xp_required", "title", "description", "unlocks", "lessons"],
+  "properties": {
+    "level_id": { "type": "integer", "minimum": 1, "maximum": 10 },
+    "name": { "type": "string" },
+    "title": { "type": "string" },
+    "xp_required": { "type": "integer", "minimum": 0 },
+    "description": { "type": "string" },
+    "badge_icon": { "type": "string" },
+    "unlocks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Feature IDs unlocked at this level"
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["lesson_id", "title", "type", "xp_reward"],
+        "properties": {
+          "lesson_id": { "type": "string" },
+          "title": { "type": "string" },
+          "type": { "enum": ["interactive", "quiz", "practice", "challenge"] },
+          "xp_reward": { "type": "integer" },
+          "content": { "type": "object" }
+        }
+      }
+    }
+  }
+}

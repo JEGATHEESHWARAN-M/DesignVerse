@@ -1,0 +1,56 @@
+[
+  {
+    "challenge_id": "ch_find_door_floor",
+    "title": "🔍 Find the Door & Floor!",
+    "min_level": 1,
+    "xp_reward": 30,
+    "badge_reward": "🌱",
+    "description": "Tap on the floor under your feet and find the door to go outside!",
+    "criteria": { "action": "find_floor_door" }
+  },
+  {
+    "challenge_id": "ch_chair_puzzle",
+    "title": "🪑 Furniture Match Up",
+    "min_level": 2,
+    "xp_reward": 40,
+    "badge_reward": "🪑",
+    "description": "Put the chair next to the dining table so our room buddy can sit down!",
+    "criteria": { "action": "chair_near_table" }
+  },
+  {
+    "challenge_id": "ch_happy_room",
+    "title": "🎨 Happy Colors",
+    "min_level": 3,
+    "xp_reward": 50,
+    "badge_reward": "🎨",
+    "description": "Pick a warm sunshine yellow or ocean blue for the bedroom walls!",
+    "criteria": { "action": "paint_walls" }
+  },
+  {
+    "challenge_id": "ch_door_clearance",
+    "title": "🚶 Clear Path Detective",
+    "min_level": 5,
+    "xp_reward": 60,
+    "badge_reward": "📐",
+    "description": "Oh no! A chair is blocking the doorway! Move it away so the door can swing open freely.",
+    "criteria": { "action": "clear_door_path" }
+  },
+  {
+    "challenge_id": "ch_map_to_3d",
+    "title": "🚀 2D Map to 3D Magic",
+    "min_level": 9,
+    "xp_reward": 100,
+    "badge_reward": "🌍",
+    "description": "Draw a small bedroom map on the floor planner and watch the AI turn it into a 3D world!",
+    "criteria": { "action": "convert_2d_to_3d" }
+  },
+  {
+    "challenge_id": "ch_dream_room_grad",
+    "title": "👑 Design Your Dream Room",
+    "min_level": 10,
+    "xp_reward": 200,
+    "badge_reward": "🏆",
+    "description": "Combine colors, cozy materials, lighting, and furniture to create your graduation masterpiece!",
+    "criteria": { "action": "graduate_dream_room" }
+  }
+]

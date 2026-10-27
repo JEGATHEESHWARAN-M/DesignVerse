@@ -1,0 +1,66 @@
+[
+  {
+    "id": "mat_oak_wood",
+    "label": "Warm Oak Wood",
+    "surface_types": ["floor", "furniture"],
+    "pbr_ref": "pbr_wood_oak_natural",
+    "fact_text": "Oak trees can live for hundreds of years, and their sturdy wood makes cozy, strong floors!",
+    "min_level": 1
+  },
+  {
+    "id": "mat_soft_cloud_carpet",
+    "label": "Cloud Soft Carpet",
+    "surface_types": ["floor"],
+    "pbr_ref": "pbr_carpet_wool_cream",
+    "fact_text": "Soft carpets keep your toes warm on chilly mornings and absorb playful footsteps!",
+    "min_level": 2
+  },
+  {
+    "id": "mat_terrazzo_tiles",
+    "label": "Playful Terrazzo",
+    "surface_types": ["floor", "wall"],
+    "pbr_ref": "pbr_tile_terrazzo_pastel",
+    "fact_text": "Terrazzo was invented in Venice by mixing colorful chips of stone into smooth cement!",
+    "min_level": 3
+  },
+  {
+    "id": "mat_carolina_blue_plaster",
+    "label": "Sky Blue Plaster",
+    "surface_types": ["wall"],
+    "pbr_ref": "pbr_plaster_matte_blue",
+    "fact_text": "Light blue walls remind us of the peaceful open sky and help us feel calm and creative!",
+    "min_level": 3
+  },
+  {
+    "id": "mat_mountain_marble",
+    "label": "Smooth Mountain Marble",
+    "surface_types": ["floor", "furniture"],
+    "pbr_ref": "pbr_stone_marble_white",
+    "fact_text": "Marble is a natural limestone that formed deep under mountains over millions of years!",
+    "min_level": 7
+  },
+  {
+    "id": "mat_sunflower_linen",
+    "label": "Sunflower Linen",
+    "surface_types": ["furniture"],
+    "pbr_ref": "pbr_fabric_linen_yellow",
+    "fact_text": "Linen is woven from flax plant fibers, making it one of the most breathable fabrics in the world!",
+    "min_level": 4
+  },
+  {
+    "id": "mat_emerald_velvet",
+    "label": "Emerald Velvet",
+    "surface_types": ["furniture"],
+    "pbr_ref": "pbr_fabric_velvet_green",
+    "fact_text": "Velvet has tiny standing threads called a 'pile' that give it an ultra-soft, magical sheen!",
+    "min_level": 5
+  },
+  {
+    "id": "mat_exposed_brick",
+    "label": "Friendly Red Brick",
+    "surface_types": ["wall"],
+    "pbr_ref": "pbr_brick_clay_warm",
+    "fact_text": "Bricks are baked clay blocks that humans have used to build snug shelters for thousands of years!",
+    "min_level": 6
+  }
+]

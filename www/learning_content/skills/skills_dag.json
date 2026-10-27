@@ -1,0 +1,17 @@
+[
+  { "skill_id": "room_basics",          "name": "Room Basics",           "min_level": 1, "prerequisites": [],                                "xp_per_mastery": 50,  "icon": "🌱" },
+  { "skill_id": "furniture_basics",     "name": "Furniture Friends",     "min_level": 2, "prerequisites": ["room_basics"],                   "xp_per_mastery": 80,  "icon": "🪑" },
+  { "skill_id": "color_basics",         "name": "Color Magic",           "min_level": 3, "prerequisites": ["room_basics"],                   "xp_per_mastery": 100, "icon": "🎨" },
+  { "skill_id": "shape_basics",         "name": "Shapes in Rooms",       "min_level": 4, "prerequisites": ["furniture_basics"],              "xp_per_mastery": 120, "icon": "🔷" },
+  { "skill_id": "space_basics",         "name": "Walking Space",         "min_level": 5, "prerequisites": ["shape_basics"],                  "xp_per_mastery": 150, "icon": "📐" },
+  { "skill_id": "furniture_placement",  "name": "Smart Placement",       "min_level": 5, "prerequisites": ["space_basics"],                  "xp_per_mastery": 150, "icon": "🚶" },
+  { "skill_id": "measurement_basics",   "name": "Room Sizes",            "min_level": 5, "prerequisites": ["space_basics"],                  "xp_per_mastery": 160, "icon": "📏" },
+  { "skill_id": "room_planning",        "name": "Full Room Planning",    "min_level": 6, "prerequisites": ["furniture_placement"],           "xp_per_mastery": 200, "icon": "🏠" },
+  { "skill_id": "materials_basics",     "name": "Cozy Materials",        "min_level": 7, "prerequisites": ["color_basics"],                  "xp_per_mastery": 220, "icon": "🪵" },
+  { "skill_id": "lighting_basics",      "name": "Sunlight & Lamps",      "min_level": 7, "prerequisites": ["materials_basics"],              "xp_per_mastery": 220, "icon": "💡" },
+  { "skill_id": "design_principles",    "name": "Room Balance & Style",  "min_level": 7, "prerequisites": ["room_planning"],                 "xp_per_mastery": 250, "icon": "✨" },
+  { "skill_id": "floor_plan_basics",    "name": "Bird's-Eye Maps",       "min_level": 8, "prerequisites": ["room_planning"],                 "xp_per_mastery": 280, "icon": "🗺️" },
+  { "skill_id": "3d_design",            "name": "3D World Building",     "min_level": 9, "prerequisites": ["floor_plan_basics"],             "xp_per_mastery": 320, "icon": "🌍" },
+  { "skill_id": "ai_design",            "name": "AI Design Helper",      "min_level": 9, "prerequisites": ["3d_design"],                     "xp_per_mastery": 350, "icon": "🤖" },
+  { "skill_id": "young_designer_master","name": "Young Designer Master", "min_level": 10,"prerequisites": ["3d_design", "ai_design"],        "xp_per_mastery": 500, "icon": "👑" }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "badge_room_explorer",
+    "label": "Room Explorer",
+    "icon": "compass",
+    "condition": "explore_all_room_elements",
+    "first_level": 1
+  },
+  {
+    "id": "badge_furniture_finder",
+    "label": "Furniture Finder",
+    "icon": "chair",
+    "condition": "add_and_identify_first_object",
+    "first_level": 2
+  },
+  {
+    "id": "badge_color_wizard",
+    "label": "Color Wizard",
+    "icon": "palette",
+    "condition": "mix_and_apply_custom_palette",
+    "first_level": 3
+  },
+  {
+    "id": "badge_spatial_pilot",
+    "label": "Spatial Pilot",
+    "icon": "arrows_alt",
+    "condition": "rotate_and_position_without_collision",
+    "first_level": 4
+  },
+  {
+    "id": "badge_clear_pathways",
+    "label": "Clear Pathways Hero",
+    "icon": "walking",
+    "condition": "validate_clear_walkway_from_door",
+    "first_level": 5
+  },
+  {
+    "id": "badge_room_creator",
+    "label": "Master Room Creator",
+    "icon": "home",
+    "condition": "furnish_and_color_complete_room",
+    "first_level": 6
+  },
+  {
+    "id": "badge_lighting_artist",
+    "label": "Sky & Lighting Artist",
+    "icon": "sun",
+    "condition": "explore_all_four_lighting_presets",
+    "first_level": 7
+  },
+  {
+    "id": "badge_map_sketcher",
+    "label": "Junior Cartographer",
+    "icon": "map",
+    "condition": "draw_closed_loop_floor_plan",
+    "first_level": 8
+  },
+  {
+    "id": "badge_3d_magician",
+    "label": "3D Room Magician",
+    "icon": "cube",
+    "condition": "reconstruct_floor_plan_to_3d_space",
+    "first_level": 9
+  },
+  {
+    "id": "badge_dream_architect",
+    "label": "Grand Dream Architect",
+    "icon": "crown",
+    "condition": "complete_dream_room_capstone_challenge",
+    "first_level": 10
+  }
+]
